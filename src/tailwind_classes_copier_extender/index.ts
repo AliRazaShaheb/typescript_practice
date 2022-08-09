@@ -24,18 +24,23 @@ const arr2str = (arr: string[]) => {
 };
 
 const cssClasses = (str1: string, str2: string) => {
-  const obj: any = {};
   const wholeStrArr = str1.concat(str2).split(" ");
-  for (let val of wholeStrArr) {
-    obj[val] = val;
-  }
-  const newArr = Object.keys(obj).map((each) => {
-    return each;
-  });
-  return newArr.join(" ");
+  const uniqArrValue = (arr) => {
+    const obj: any = {};
+    for (let val of wholeStrArr) {
+      const valArr = val.split("-");
+      console.log(valArr);
+      obj[val] = val;
+    }
+    return Object.keys(obj).map((each) => {
+      return each;
+    });
+  };
+  console.log(uniqArrValue(wholeStrArr));
+  return;
 };
 
-let cl = "fixed p-8 p-8 pt-4 text-white w-full z-50";
+let cl = "fixed p-8 p-16 pt-4 text-white w-full z-50";
 
 console.log(cssClasses(cl, "s-8 y-9 heool safkas askfss y-9"));
 
